@@ -4,7 +4,7 @@ In the Cockpit yaml `config/config.yaml`:
 
 ```
 auth0:
-    enable: true
+    enabled: true
     domain: company.eu.auth0.com
     id: xxxxLG1Phms1LsZAnrNe3xxxxxx
     scope: openid profile email
