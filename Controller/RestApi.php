@@ -25,7 +25,7 @@ class RestApi extends \LimeExtra\Controller {
     if ($this->module("cockpit")->hasaccess('cockpit', 'backend', @$user['group'])) {
       // check session ttl from config
       $sessionTTL = $this->app->retrieve('config/auth0/session_ttl', 3600);
-      \session_start([
+      @\session_start([
         'cookie_lifetime' => $sessionTTL,
       ]);
 
