@@ -88,10 +88,12 @@ $this->module('auth0')->extend([
 
       $info = json_decode($result, true);
     } else {
-      err("Got cached info", var_export($result, true));
+      if (!empty($result)) {
+        err("Got cached info", var_export($result, true));
+      }
     }
 
-    if($info['error']) {
+    if(!empty($info['error'])) {
       err("Auth0 Error", var_export($info, true));
       $this->app->helper('cache')->write("auth0.user.{$domain}.{$token}", null, $options['cache']);
       return null;
